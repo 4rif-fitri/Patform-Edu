@@ -51,6 +51,7 @@ nav {
 	position: relative;
 	height: 4rem;
 	background-color: #fff;
+	border-bottom: 3px solid black;
 }
 
 .logo {
