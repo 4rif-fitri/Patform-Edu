@@ -1,12 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Edu Platform</title>
 	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-	
+	<main>
+		<nav>
+			<label for="checkbox">
+				<img src="./imgs/dropdown icon.png" alt="">
+			</label>
+			<input hidden type="checkbox" name="checkbox" id="checkbox">
+			<!-- <img class="logo" src="./imgs/logo.png" alt=""> -->
+			<aside>
+				<ul>
+					<li>Home</li>
+					<li>All Courses</li>
+					<li>My Courses</li>
+				</ul>
+			</aside>
+		</nav>
+
+		<input hidden type="checkbox" name="popUp" id="popUp">
+
+		<div class="pop-up-container">
+			<div class="content-container">
+				<div class="content border-3">
+					<article>
+						<label for="popUp" class="btn-close">X</label>
+					</article>
+					<div class="input-control">
+						<label for="name">
+							<h3>Name :</h3>
+						</label>
+						<input type="text" name="name" id="name">
+					</div>
+					<div class="profil-control">
+						<label for="profile">
+							<h3>Photo Profile</h3>
+						</label>
+						<div class="icon-container">
+							<img class="icon-profile border-1" src="./imgs/dropdown icon.png" alt="">
+							<img class="icon-profile border-1" src="./imgs/dropdown icon.png" alt="">
+							<img class="icon-profile border-1" src="./imgs/dropdown icon.png" alt="">
+							<img class="icon-profile border-1" src="./imgs/dropdown icon.png" alt="">
+							<img class="icon-profile border-1" src="./imgs/dropdown icon.png" alt="">
+						</div>
+					</div>
+					<button class="btn-save">Save</button>
+				</div>
+			</div>
+		</div>
+		
+
+		<section class="border-3">
+			<label for="popUp">
+				<h4 class="btnNewStudent border-3">New Student</h4>
+			</label>
+			
+			<div class="user-container">
+				<div class="user-item border-2">
+					<div class="user-icon"></div>
+					<div class="user-neme">
+						<h3>Lorem Ipsum</h3>
+					</div>
+					<button class="user-delete"></button>
+				</div>
+				<div class="user-item border-2">
+					<div class="user-icon"></div>
+					<div class="user-neme">
+						<h3>Lorem Ipsum</h3>
+					</div>
+					<button class="user-delete"></button>
+				</div>
+				<div class="user-item border-2">
+					<div class="user-icon"></div>
+					<div class="user-neme">
+						<h3>Lorem Ipsum</h3>
+					</div>
+					<button class="user-delete"></button>
+				</div>
+			</div>
+		</section>
+
+	</main>
 </body>
+
 </html>
