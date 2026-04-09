@@ -1,0 +1,33 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+:root {
+	--background: #FFF8C5;
+	--yellow: #FFFF00;
+	--green: #51FF00;
+	--soft-green: #77F7AE;
+	--red: #FF0004;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+	list-style: none;
+}
+.border-3 {
+	border: 3px solid black !important;
+}
+
+.border-1 {
+	border: 1px solid black;
+}
+
+.border-2 {
+	border: 2px solid black;
+}
