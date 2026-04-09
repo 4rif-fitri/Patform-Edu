@@ -1,0 +1,10 @@
+*{padding: 0;margin: 0;box-sizing: border-box;}
+
+
+:root{
+	--background:#FFF8C5;
+	--yellow:#FFFF00;
+	--green:#51FF00;
+	--soft-green:#77F7AE;
+	--red:#FF0004;
+}
