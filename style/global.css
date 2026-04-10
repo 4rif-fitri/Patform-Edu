@@ -4,13 +4,16 @@
 	box-sizing: border-box;
 }
 
-
 :root {
 	--background: #FFF8C5;
 	--yellow: #FFFF00;
 	--green: #51FF00;
 	--soft-green: #77F7AE;
 	--red: #FF0004;
+}
+
+html{
+	image-rendering: pixelated;
 }
 
 body {
@@ -25,17 +28,17 @@ ul {
 }
 
 .border-1 {
-	border: 1px solid black;
+	border: 1px solid black !important;
 }
 
 .border-2 {
-	border: 2px solid black;
+	border: 2px solid black !important;
 }
 .shadow-4 {
-	box-shadow: 4px 4px 0 0;
+	box-shadow: 4px 4px 0 0 !important;
 }
 .shadow-5{
-	box-shadow: 5px 5px 0 0;
+	box-shadow: 5px 5px 0 0 !important;
 }
 main {
 	margin: 0 auto;

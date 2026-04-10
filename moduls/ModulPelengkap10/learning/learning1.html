@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../../style/global.css">
+	<style>
+		
+		.content {
+			height: calc(100vh - 4rem);
+			position: relative;
+		}
+
+		.content>.char {
+			position: absolute;
+			top: 60%;
+			left: 25%;
+			translate: -50% -50%;
+			scale: 10;
+			z-index: 1;
+		}
+
+		.lantai {
+			position: absolute;
+			top: 65%;
+			left: 50%;
+			scale: 6;
+		}
+
+		.board {
+			position: absolute;
+			top: 10%;
+			left: 50%;
+			translate: -50% 0;
+			height: calc(16px * 8);
+			width: calc(48px * 8);
+			z-index: 1;
+		}
+
+		.board img {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+		}
+
+		.board>.text {
+			position: relative;
+			height: 100%;
+			width: 100%;
+		}
+
+		.board>.text>.row {
+			position: absolute;
+			z-index: 5;
+			width: 100%;
+			height: 100%;
+		}
+		.roww{
+			height: 100%;
+			width: 100%;
+			padding: 0.5rem;
+			display: grid;
+			grid-template-columns: repeat(8,1fr);
+			grid-template-rows: repeat(2,1fr);
+		}
+		.roww > *{
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
+		}
+		.satu{
+			background-image: url("../imgs/1.png");
+		}
+		.dua{
+			background-image: url("../imgs/2.png");
+		}
+		.tiga,.enam,.sebelas,.empatBelas,.sembilan,.duaBelas,.limeBelas{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2rem;
+		}
+		.empat{
+			background-image: url("../imgs/3.png");
+		}
+		.lima{
+			background-image: url("../imgs/3.png");
+		}
+		.tujuh{
+			background-image: url("../imgs/5.png");
+		}
+		.lapan{
+			background-image: url("../imgs/5.png");
+		}
+		.sembilan,.duaBelas,.limeBelas{
+			grid-column: span 2;
+		}
+		
+
+
+		.dialog {
+			position: absolute;
+			top: 42%;
+			left: 25%;
+			height: calc(20px * 6);
+			width: calc(48px * 6);
+			z-index: 1;
+		}
+
+		.dialog > .text > img {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+		}
+
+		.dialog>.text {
+			position: relative;
+			height: 100%;
+			width: 100%;
+		}
+
+		.dialog>.text p {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			translate: -50% -50%;
+		}
+		.btn-next{
+			all: unset;
+			position: absolute;
+			bottom: 30px;
+			right: 30px;
+			padding: 1rem 2rem;
+			background-color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<nav>
+			<label for="checkbox">
+				<img src="../../../imgs/dropdown icon.png" alt="">
+			</label>
+			<input hidden type="checkbox" name="checkbox" id="checkbox">
+			<!-- <img class="logo" src="./imgs/logo.png" alt=""> -->
+			<aside>
+				<ul>
+					<li><a href="../../../index.html">Home</a></li>
+					<li><a href="../../../allCourses.html">All Courses</a></li>
+					<li><a href="../../../myCourses.html">My Courses</a></li>
+				</ul>
+			</aside>
+		</nav>
+		<div class="content">
+
+			<div class="board">
+				<div class="text">
+					<img src="../imgs/board.png" alt="">
+					<div class="row">
+						<div class="roww">
+							<div class="satu"></div>
+							<div class="dua"></div>
+							<div class="tiga">+</div>
+							<div class="empat"></div>
+							<div class="lima"></div>
+							<div class="enam">=</div>
+							<div class="tujuh"></div>
+							<div class="lapan"></div>
+
+							<div class="sembilan">2</div>
+							<div class="sebelas">+</div>
+							<div class="duaBelas">3</div>
+							<div class="empatBelas">=</div>
+							<div class="limeBelas">3</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<img class="char" src="../imgs/ch1.png" alt="">
+			<img class="lantai" src="../imgs/StreetBattle.png" alt="">
+
+			<div class="dialog">
+				<div class="text">
+					<img src="../imgs/dialog.png" alt="">
+					<p>asd</p>
+				</div>
+			</div>
+
+			<button class="btn-next border-3 shadow-4">
+				<h3>Next</h3>
+			</button>
+
+		</div>
+
+	</main>
+</body>
+
+</html>
