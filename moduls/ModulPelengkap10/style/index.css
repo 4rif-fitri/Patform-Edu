@@ -27,6 +27,8 @@
 }
 
 main {
+	width: 100% !important;
+	height: auto;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
