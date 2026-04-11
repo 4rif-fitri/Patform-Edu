@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Edu Platform</title>
+	<link rel="stylesheet" href="../../../style/global.css">
+	<link rel="stylesheet" href="../style/latihan3.css">
+</head>
+
+<body>
+	<main>
+		<nav>
+			<label for="checkbox">
+				<img src="../../../imgs/dropdown icon.png" alt="">
+			</label>
+			<input hidden type="checkbox" name="checkbox" id="checkbox">
+			<!-- <img class="logo" src="./imgs/logo.png" alt=""> -->
+			<aside>
+				<ul>
+					<li><a href="../../../index.html">Home</a></li>
+					<li><a href="../../../allCourses.html">All Courses</a></li>
+					<li><a href="../../../myCourses.html">My Courses</a></li>
+					<li><a href="../../ModulPelengkap10/index.html">Back</a></li>
+				</ul>
+			</aside>
+		</nav>
+
+		<section>
+			<div class="popup-giveup-container" id="pop">
+				<div class="popup-giveup-content">
+					<center>
+						<h2>Keputusan</h2>
+					</center>
+					<div class="result-container">
+						<div class="grid-4">
+							<div class="result-box">
+								<article>
+									<p>Soalan</p>
+									<span id="bilQuestion">10</span>
+								</article>
+							</div>
+							<div class="result-box">
+								<article>
+									<p>Masa</p>
+									<span id="masa">10minit</span>
+								</article>
+							</div>
+							<div class="result-box">
+								<article>
+									<p>Betul</p>
+									<span id="betul">10</span>
+								</article>
+							</div>
+							<div class="result-box">
+								<article>
+									<p>Salah</p>
+									<span id="salah">10</span>
+								</article>
+							</div>
+						</div>
+						<div class="grid-3">
+							<div class="result-box">
+								<article>
+									<p>Betul</p>
+									<span id="ketepatan">20%</span>
+								</article>
+							</div>
+							<div class="result-box">
+								<article>
+									<p>Salah</p>
+									<span id="kadarSalah">80%</span>
+								</article>
+							</div>
+							<div class="result-box">
+								<article>
+									<p>Masa purata setiap soalan</p>
+									<span id="avgTimeQuestion">12 saat</span>
+								</article>
+							</div>
+						</div>
+					</div>
+					<center class="img">
+						<div class="text" id="text"></div>
+						<img id="good" style="display: none;" height="30%" src="../imgs/images.jpg" alt="">
+						<img id="notbad" style="display: none;" height="200rem"
+							src="../imgs/8fa056b2db922feae203e193e9bffcc6.jpg" alt="">
+						<img id="bad" style="display: none;" height="200rem" src="../imgs/sinirli-sigma.png" alt="">
+					</center>
+					<div class="result-box overall" id="overallElement">
+						<p>Rating: <span id="overall">10</span></p>
+					</div>
+					<a href="../index.html" class="btn-home" id="back">Back</a>
+				</div>
+			</div>
+			<header>
+				<!-- <button id="back" class="btn-back btn"> Back Home</button> -->
+				<div class="title">
+					<h1>Quiz</h1>
+				</div>
+				<div class="board">
+					<article class="btn btn-soalan">
+						<span>
+							<center>
+								<p>Soalan</p>
+								<h2 id="question">1</h2>
+							</center>
+						</span>
+					</article>
+					<article class="btn btn-time">
+						<span>
+							<center>
+								<p>Masa</p>
+								<h2 id="time">00:00</h2>
+							</center>
+						</span>
+					</article>
+					<article class="btn btn-score">
+						<span>
+							<center>
+								<p>Betul</p>
+								<h2 id="score">0</h2>
+							</center>
+						</span>
+					</article>
+					<article class="btn btn-wrong">
+						<span>
+							<center>
+								<p>Salah</p>
+								<h2 id="wrong">0</h2>
+							</center>
+						</span>
+					</article>
+				</div>
+			</header>
+			<main>
+				<article class="message-container">
+					<article class="message-group">
+						<H4 id="textMessage">Berapa Hasil Dua Nombor Ini</H4>
+					</article>
+				</article>
+				<article class="moniter-container">
+					<article class="moniter-group">
+						<div id="moniter1" class="item">9</div>
+						<div class="item">+</div>
+						<div id="moniter2" class="item">2</div>
+						<div class="item">=</div>
+						<div id="hasil" class="item kuning borderDash"></div>
+					</article>
+				</article>
+				<div id="bar"></div>
+				<article class="soalan-container">
+					<div class="soalan-group">
+						<div class="soalan-item">1</div>
+						<div class="soalan-item">1</div>
+						<div class="soalan-item">1</div>
+						<div class="soalan-item">1</div>
+						<div class="soalan-item">1</div>
+						<div class="soalan-item">1</div>
+					</div>
+				</article>
+
+				<article class="btn-container">
+					<article class="btn-group">
+						<button id="GiveUp">Give Up!</button>
+					</article>
+				</article>
+			</main>
+			<footer>
+
+			</footer>
+		</section>
+
+	</main>
+
+	<script>
+
+		let ui = {
+			boxHasil: document.getElementById("hasil"),
+			boxMoniter1: document.getElementById("moniter1"),
+			boxMoniter2: document.getElementById("moniter2"),
+			boxAsns: document.querySelectorAll(".soalan-item"),
+			bar: document.getElementById("bar")
+		}
+		let count = {
+			question: 1,
+			betul: 0,
+			salah: 0,
+			masa: 0,
+			saat: 0,
+			minit: 0,
+			formatedTime: "00:00",
+		}
+		let stateGame = {
+			number1: 0,
+			number2: 0,
+			sum: 0,
+			ketepatan: 0,
+			kadarSalah: 0,
+			avgTimeQuestion: 0,
+			overall: 0,
+			idTimer: null
+		}
+		let array = {
+			boxChoise: []
+		}
+		let flag = {
+			isPick: false,
+			isAsnwerFirstQuestion: true,
+		}
+
+		let formadtedTime = (minit, saat) => {
+			minit = String(minit).padStart(2, "0")
+			saat = String(saat).padStart(2, "0")
+			count.formatedTime = `${minit}:${saat}`
+			updateBoard()
+		}
+
+		let timer = () => {
+			if (stateGame.idTimer) return
+			return setInterval(() => {
+
+				count.saat++
+				if (count.saat == 60) {
+					count.saat = 0
+					count.minit++
+				}
+				count.masa++
+				formadtedTime(count.minit, count.saat)
+			}, 1000)
+		}
+
+		let updateBoard = () => {
+			document.getElementById("question").textContent = count.question
+			document.getElementById("time").textContent = count.formatedTime
+			document.getElementById("score").textContent = count.betul
+			document.getElementById("wrong").textContent = count.salah
+			document.getElementById("time").textContent = count.formatedTime
+		}
+
+		let updateMonitor = () => {
+			document.getElementById("moniter1").textContent = stateGame.number1
+			document.getElementById("moniter2").textContent = stateGame.number2
+		}
+
+		let handleGiveUp = () => {
+			if (flag.isAsnwerFirstQuestion) return
+
+			clearInterval(stateGame.idTimer)
+
+			count.question--
+			count.ketepatan = count.betul / count.question
+			count.kadarSalah = count.salah / count.question
+			count.avgTimeQuestion = count.masa / count.question
+			let scoreTime = Math.max(0, 1 - (count.avgTimeQuestion / 10));
+			count.overall = (count.ketepatan * 0.7) + (scoreTime * 0.3),
+
+				document.getElementById("pop").style.display = "flex"
+			document.getElementById("bilQuestion").textContent = count.question
+			document.getElementById("masa").textContent = `${count.masa}saat`
+			document.getElementById("betul").textContent = count.betul
+			document.getElementById("salah").textContent = count.salah
+			document.getElementById("ketepatan").textContent = `${(count.ketepatan * 100).toFixed(0)}%`
+			document.getElementById("kadarSalah").textContent = `${(count.kadarSalah * 100).toFixed(0)}%`
+			document.getElementById("avgTimeQuestion").textContent = `${(count.avgTimeQuestion).toFixed(2)} saat`
+			document.getElementById("overall").textContent = `${(count.overall * 10).toFixed(0)}/10`
+
+			let cvg = (count.overall * 10)
+
+			if (cvg < 5) {
+				document.getElementById("bad").style.display = "flex"
+				document.getElementById("text").textContent = "Ape ni Main Tekan Ke"
+				document.getElementById("overallElement").classList.add("bad")
+			} else if (cvg < 8) {
+				document.getElementById("notbad").style.display = "flex"
+				document.getElementById("text").textContent = "Boleh Tahan"
+				document.getElementById("overallElement").classList.add("notbad")
+			} else {
+				document.getElementById("good").style.display = "flex"
+				document.getElementById("text").textContent = "Pandai Budak ni"
+				document.getElementById("overallElement").classList.add("good")
+			}
+		}
+		let random2to9 = () => Math.floor(Math.random() * 8) + 2
+
+		let nextNum = (n) => {
+			let o = random2to9()
+			do {
+				o = random2to9()
+			} while ((o + n) < 11 || o === n)
+			stateGame.sum = o + n
+			return o
+		}
+
+		let reshuffleArray = (arr) => {
+			for (let i = arr.length - 1; i > 0; i--) {
+				let j = Math.floor(Math.random() * (i + 1))
+
+				let temp = arr[i]
+				arr[i] = arr[j]
+				arr[j] = temp
+			}
+
+			return arr
+		}
+
+		let randomChoise = () => {
+			array.boxChoise[0] = stateGame.sum + 1
+			array.boxChoise[1] = stateGame.sum - 1
+			array.boxChoise[2] = stateGame.sum + 2
+			array.boxChoise[3] = stateGame.sum - 2
+			array.boxChoise[4] = stateGame.sum + 3
+			array.boxChoise[5] = stateGame.sum
+		}
+
+		let delay = (masa) => new Promise(resolve => setTimeout(resolve, masa))
+
+		let showaBar = async () => {
+
+			ui.bar.style.opacity = 1
+			ui.bar.style.animation = "bar 0.5s linear"
+			await delay(500)
+			ui.bar.style.opacity = 0
+			ui.bar.style.animation = ""
+
+			ui.boxHasil.textContent = ""
+			flag.isPick = false
+			setup()
+		}
+
+		let handlePick = (e) => {
+			if (flag.isPick) return
+			flag.isAsnwerFirstQuestion = false
+			flag.isPick = true
+			ui.boxHasil.textContent = e.target.textContent
+
+			ui.boxHasil.classList.remove("kuning")
+			if (parseInt(e.target.textContent) === stateGame.sum) {
+				ui.boxHasil.classList.add("betul")
+				e.target.classList.add("betul")
+				count.betul++
+				console.log(count.betul);
+
+			} else {
+				ui.boxHasil.classList.add("salah")
+				e.target.classList.add("salah")
+				count.salah++
+				console.log(count.salah);
+
+			}
+			count.question++
+			updateBoard()
+			showaBar()
+		}
+
+		let setup = () => {
+			ui.boxHasil.classList.remove("salah")
+			ui.boxHasil.classList.remove("betul")
+			ui.boxHasil.classList.add("kuning")
+
+			document.querySelectorAll(".soalan-item").forEach(element => {
+				element.classList.remove("salah")
+				element.classList.remove("betul")
+			})
+
+			document.querySelectorAll(".soalan-item").forEach(element => element.removeEventListener("click", handlePick))
+
+			updateBoard()
+			stateGame.number1 = random2to9()
+			stateGame.number2 = nextNum(stateGame.number1)
+			updateMonitor()
+			randomChoise()
+			reshuffleArray(array.boxChoise)
+			reshuffleArray(array.boxChoise)
+			reshuffleArray(array.boxChoise)
+			document.querySelectorAll(".soalan-item").forEach((element, index) => {
+				element.textContent = array.boxChoise[index]
+				element.addEventListener("click", handlePick)
+			})
+		}
+		let renderQuiz = () => {
+			let root = document.getElementById("app")
+			root.innerHTML = null
+			let t = style
+			t += template
+			root.insertAdjacentHTML("beforeend", t);
+		}
+
+		let homePage = () => {
+
+			clearInterval(stateGame.idTimer)
+
+			ui.boxHasil = null
+			ui.boxMoniter1 = null
+			ui.boxMoniter2 = null
+			ui.boxAsns = null
+			ui.bar = null
+
+			count.question = 1
+			count.betul = 0
+			count.salah = 0
+			count.masa = 0
+			count.saat = 0
+			count.minit = 0
+			count.formatedTime = "00:00"
+
+			stateGame.number1 = 0
+			stateGame.number2 = 0
+			stateGame.sum = 0
+			stateGame.ketepatan = 0
+			stateGame.kadarSalah = 0
+			stateGame.avgTimeQuestion = 0
+			stateGame.overall = 0
+			stateGame.idTimer = null
+
+			array.boxChoise = []
+
+			flag.isPick = false
+			flag.isAsnwerFirstQuestion = true
+
+			app.innerHTML = ''
+			app()
+		}
+
+		let initQuiz = () => {
+			// renderQuiz()
+
+			ui.boxHasil = document.getElementById("hasil"),
+				ui.boxMoniter1 = document.getElementById("moniter1"),
+				ui.boxMoniter2 = document.getElementById("moniter2"),
+				ui.boxAsns = document.querySelectorAll(".soalan-item"),
+				ui.bar = document.getElementById("bar")
+
+			stateGame.idTimer = timer()
+
+			setup()
+
+			ui.bar.style.opacity = 0
+
+			document.getElementById("GiveUp").addEventListener("click", handleGiveUp)
+			document.querySelectorAll("#back").forEach(btn => btn.addEventListener("click", homePage))
+		}
+		initQuiz()
+	</script>
+
+</body>
+
+</html>
