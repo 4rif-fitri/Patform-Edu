@@ -7,7 +7,6 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="../../../style/global.css">
 	<style>
-		
 		.content {
 			height: calc(100vh - 4rem);
 			position: relative;
@@ -29,7 +28,10 @@
 			scale: 6;
 		}
 
-		.board {
+		.board,
+		.board2,
+		.board3
+		{
 			position: absolute;
 			top: 10%;
 			left: 50%;
@@ -39,65 +41,117 @@
 			z-index: 1;
 		}
 
-		.board img {
+		.board img,
+		.board2 img, 
+		.board3 img 
+		{
 			position: absolute;
 			height: 100%;
 			width: 100%;
 		}
 
-		.board>.text {
+		.board>.text,
+		.board2>.text,
+		.board3>.text
+		 {
 			position: relative;
 			height: 100%;
 			width: 100%;
 		}
 
-		.board>.text>.row {
+		.board>.text>.row,
+		.board2>.text>.row,
+		.board3>.text>.row
+		 {
 			position: absolute;
 			z-index: 5;
 			width: 100%;
 			height: 100%;
 		}
-		.roww{
+
+		.board3>.text>.row {
 			height: 100%;
 			width: 100%;
 			padding: 0.5rem;
 			display: grid;
-			grid-template-columns: repeat(8,1fr);
-			grid-template-rows: repeat(2,1fr);
+			grid-template-columns: repeat(3, 1fr);
+			place-items: center;
 		}
-		.roww > *{
+
+		.board2>.text>.row {
+			height: 100%;
+			width: 100%;
+			padding: 0.5rem;
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			place-items: center;
+		}
+
+		.board2>.text>.row>span {
+			height: 4rem;
+			aspect-ratio: 1 / 1;
+			background-color: lightgoldenrodyellow;
+			border: 3px dashed black;
+		}
+
+		.board>.text>.row>.roww {
+			height: 100%;
+			width: 100%;
+			padding: 0.5rem;
+			display: grid;
+			grid-template-columns: repeat(8, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+		}
+
+		.board>.text>.row>.roww>* {
 			background-repeat: no-repeat;
 			background-size: contain;
 			background-position: center;
 		}
-		.satu{
+
+		.satu {
 			background-image: url("../imgs/1.png");
 		}
-		.dua{
+
+		.dua {
 			background-image: url("../imgs/2.png");
 		}
-		.tiga,.enam,.sebelas,.empatBelas,.sembilan,.duaBelas,.limeBelas{
+
+		.tiga,
+		.enam,
+		.sebelas,
+		.empatBelas,
+		.sembilan,
+		.duaBelas,
+		.limeBelas {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			font-size: 2rem;
 		}
-		.empat{
+
+		.empat {
 			background-image: url("../imgs/3.png");
 		}
-		.lima{
+
+		.lima {
 			background-image: url("../imgs/3.png");
 		}
-		.tujuh{
+
+		.tujuh {
 			background-image: url("../imgs/5.png");
 		}
-		.lapan{
+
+		.lapan {
 			background-image: url("../imgs/5.png");
 		}
-		.sembilan,.duaBelas,.limeBelas{
+
+		.sembilan,
+		.duaBelas,
+		.limeBelas {
 			grid-column: span 2;
 		}
-		
+
 
 
 		.dialog {
@@ -109,7 +163,7 @@
 			z-index: 1;
 		}
 
-		.dialog > .text > img {
+		.dialog>.text>img {
 			position: absolute;
 			height: 100%;
 			width: 100%;
@@ -119,21 +173,29 @@
 			position: relative;
 			height: 100%;
 			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 
-		.dialog>.text p {
+		.dialog>.text>h4 {
 			position: absolute;
-			top: 50%;
-			left: 50%;
-			translate: -50% -50%;
+			top: 40%;
+			transform: translateY(-50%);
+			text-align: center;
 		}
-		.btn-next{
+
+		.btn-next {
 			all: unset;
 			position: absolute;
 			bottom: 30px;
 			right: 30px;
 			padding: 1rem 2rem;
 			background-color: yellow;
+		}
+
+		.hidden {
+			visibility: hidden !important;
 		}
 	</style>
 </head>
@@ -156,7 +218,7 @@
 		</nav>
 		<div class="content">
 
-			<div class="board">
+			<div class="board hidden">
 				<div class="text">
 					<img src="../imgs/board.png" alt="">
 					<div class="row">
@@ -180,23 +242,104 @@
 				</div>
 			</div>
 
+			<div class="board2 hidden">
+				<div class="text">
+					<img src="../imgs/board.png" alt="">
+					<div class="row">
+						<span></span>
+						<!-- <h1>1</h1> -->
+						<h1>+</h1>
+						<span></span>
+						<!-- <h1>1</h1> -->
+						<h1>=</h1>
+						<h1>10</h1>
+					</div>
+				</div>
+			</div>
+			<div class="board3 hidden">
+				<div class="text">
+					<img src="../imgs/board.png" alt="">
+					<div class="row">
+						<h1>9</h1>
+						<h1>dan</h1>
+						<h1>1</h1>
+					</div>
+				</div>
+			</div>
+
 			<img class="char" src="../imgs/ch1.png" alt="">
 			<img class="lantai" src="../imgs/StreetBattle.png" alt="">
 
 			<div class="dialog">
 				<div class="text">
 					<img src="../imgs/dialog.png" alt="">
-					<p>asd</p>
+					<h4>Jom Belajar apa itu pelengkap 10</h4>
 				</div>
 			</div>
 
-			<button class="btn-next border-3 shadow-4">
+			<button id="btnNext" class="btn-next border-3 shadow-4">
 				<h3>Next</h3>
 			</button>
 
 		</div>
 
 	</main>
+	<script>
+		let dialogContainer = document.querySelector(".dialog")
+		let dialogText = document.querySelector(".dialog h4")
+
+		let board1 = document.querySelector(".board")
+		let board2 = document.querySelector(".board2")
+		let board3 = document.querySelector(".board3")
+
+		let btnNext = document.getElementById("btnNext")
+
+		let step = 0
+
+		let tuka = (num1, num2, num3, num4, num5, num6, n1, n2, n3) => {
+			document.querySelector(".satu").style.backgroundImage = `url(../imgs/${num1}.png)`
+			document.querySelector(".dua").style.backgroundImage = `url(../imgs/${num2}.png)`
+			document.querySelector(".empat").style.backgroundImage = `url(../imgs/${num3}.png)`
+			document.querySelector(".lima").style.backgroundImage = `url(../imgs/${num4}.png)`
+			document.querySelector(".tujuh").style.backgroundImage = `url(../imgs/${num5}.png)`
+			document.querySelector(".lapan").style.backgroundImage = `url(../imgs/${num6}.png)`
+
+			document.querySelector(".sembilan").textContent = n1
+			document.querySelector(".duaBelas").textContent = n2
+			document.querySelector(".limeBelas").textContent = n3
+		}
+
+
+
+		let nextStep = () => {
+			step++
+
+			switch (step) {
+				case 1:
+					dialogText.textContent = "Pelengkap 10 ialah pasangan dua nombor yang menghasilkan 10 "
+					board2.classList.remove("hidden")
+					break
+				case 2:
+					tuka(5, 4, 1, 0, 5, 5, 9, 1, 10)
+					board2.classList.add("hidden")
+					board1.classList.remove("hidden")
+					dialogText.textContent = "sembilan tambah satu same dengan sepuluh"
+					break
+				case 3:
+					tuka(1, 0, 5, 4, 5, 5, 9, 1, 10)
+					dialogText.textContent = "begitu juga, satu tambah sembilan same dengan sepuluh "
+					break
+				case 4:
+					board1.classList.add("hidden")
+					board3.classList.remove("hidden")
+					dialogText.textContent = "Jadi 9 dan 1 adalah pasangan pelengkap 10"
+					break
+			}
+
+		}
+
+		btnNext.addEventListener("click", nextStep)
+	</script>
 </body>
 
 </html>
