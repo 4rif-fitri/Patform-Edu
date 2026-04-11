@@ -40,7 +40,7 @@ ul {
 .shadow-5{
 	box-shadow: 5px 5px 0 0 !important;
 }
-main {
+body > main {
 	margin: 0 auto;
 	background: var(--background);
 	height: 100vh;
@@ -89,7 +89,7 @@ main>nav>aside>ul {
 	height: 100%;
 	width: 100%;
 	display: grid;
-	grid-template-rows: repeat(3, 5rem);
+	grid-template-rows: repeat(10, 5rem);
 	place-items: center;
 	border: 2px solid black;
 }
